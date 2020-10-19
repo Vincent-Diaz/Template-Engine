@@ -13,8 +13,8 @@ const render = require("./lib/htmlRenderer");
 const teamList = [];
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
-function addManager () {
-    inquirer.prompt ([
+function initApp() {
+    return inquirer.prompt([
         {
             type: "input",
             message: "What is the manager's name?",
@@ -47,22 +47,22 @@ function addEmployee() {
         {
             type: "list",
             message: "What role would you like to add?",
-            choices: ["Engineer", "Intern"],
+            choices: ["Engineer", "Intern", "I don't have anymore team members."],
             name: "role"
         },
     ]).then(answer => {
-        if(answer.role === "Engineer"){
+        if (answer.role === "Engineer") {
             addEngineer();
-        } else if (answer.role === "Intern"){
+        } else if (answer.role === "Intern") {
             addIntern();
-        }else {
+        } else {
             render(teamList);
         }
     })
 }
 
 function addEngineer() {
-    inquirer.prompt ([
+    inquirer.prompt([
         {
             type: "input",
             message: "What is the engineer's name?",
@@ -91,7 +91,7 @@ function addEngineer() {
 }
 
 function addIntern() {
-    inquirer.prompt ([
+    inquirer.prompt([
         {
             type: "input",
             message: "What is the intern's name?",
@@ -117,6 +117,10 @@ function addIntern() {
         teamList.push(intern);
         addEmployee();
     });
+}
+
+
+initApp();
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
