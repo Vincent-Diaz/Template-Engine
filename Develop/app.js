@@ -90,7 +90,33 @@ function addEngineer() {
     });
 }
 
-
+function addIntern() {
+    inquirer.prompt ([
+        {
+            type: "input",
+            message: "What is the intern's name?",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "What is the intern's id?",
+            name: "id"
+        },
+        {
+            type: "input",
+            message: "What is the intern's email?",
+            name: "email"
+        },
+        {
+            type: "input",
+            message: "Where does the intern attend school?",
+            name: "school"
+        },
+    ]).then(data => {
+        const intern = new Engineer(data.name, data.id, data.email, data.school);
+        teamList.push(intern);
+        addEmployee();
+    });
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
