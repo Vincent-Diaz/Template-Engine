@@ -38,6 +38,7 @@ function addManager () {
     ]).then(response => {
         const manager = new Manager(response.name, response.id, response.email, response.officeNo);
         teamList.push(manager);
+        addEmployee();
     });
 }
 
@@ -59,6 +60,37 @@ function addEmployee() {
         }
     })
 }
+
+function addEngineer() {
+    inquirer.prompt ([
+        {
+            type: "input",
+            message: "What is the engineer's name?",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "What is the engineer's id?",
+            name: "id"
+        },
+        {
+            type: "input",
+            message: "What is the engineer's email?",
+            name: "email"
+        },
+        {
+            type: "input",
+            message: "What is the engineer's github?",
+            name: "github"
+        },
+    ]).then(data => {
+        const engineer = new Engineer(data.name, data.id, data.email, data.github);
+        teamList.push(engineer);
+        addEmployee();
+    });
+}
+
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
