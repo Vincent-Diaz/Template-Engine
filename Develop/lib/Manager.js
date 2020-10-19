@@ -5,11 +5,11 @@ class Manager extends Employee {
     constructor(name, id, email, officeNum) {
         
         super(name, id, email);
-        this.office = officeNum;
+        this.officeNumber = officeNum;
     }
 
     getOfficeNumber() {
-        return this.office
+        return this.officeNumber
     }
 
     getRole() {
