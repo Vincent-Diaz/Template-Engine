@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+.jumbotron {
+    background-color: rgb(201, 1, 1);
+    color: white;
+}
+
+.card-header {
+    background-color: rgb(66, 99, 247);
+    color: white;
+}
+
+.card-body {
+    background-color: rgb(238, 235, 235);
+}
+
+.team-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
